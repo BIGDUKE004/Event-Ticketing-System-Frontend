@@ -1,0 +1,359 @@
+body{
+    background-color: white;
+    /* margin: 0; */
+}
+
+
+.head{
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+
+.image{
+    width: 170px;
+    padding-left: 30px;
+}
+
+.event{
+    padding-left: 300px;
+    font-size: 20px;
+}
+
+.about{
+    padding-left: 40px;
+    font-size: 20px;
+}
+
+.how{
+    padding-left: 40px;
+    font-size: 20px;
+}
+
+.contact{
+    padding-left: 40px;
+    font-size: 20px;
+    padding-right: 200px;
+}
+
+.sign-in{
+    display: flex;
+    background-color: #6C3EF2;
+    height: 50px;
+    width: 100px;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.sign-up{
+    display: flex;
+    background-color: #6C3EF2;
+    height: 50px;
+    width: 100px;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-one{
+    display: flex;
+    background-color: #ada4d9;
+    height: 500px;
+}
+
+.user-journey{
+    color:   #6C3EF2;
+    font-size: 15px;
+    padding-left: 30px;
+    padding-top: 50px;
+}
+
+.journey{
+    padding-top: 20px;
+    font-size: 35px;
+    line-height: 10px;
+    padding-left: 30px;
+}
+
+.memories{
+    color:   #6C3EF2;
+}
+
+.explore{
+    padding-top: 20px;
+    color: rgb(225, 224, 224);
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.search-box{
+    border-radius: 10px;
+    width: 250px;
+    background-color: white;
+    height: 30px;
+}
+
+.event-pic{
+    padding-top: 50px;
+    /* padding-left: 400px; */
+}
+
+.box-firsthalf{
+    padding-right: 200px;
+}
+
+
+
+
+
+.box-two{
+    height: 500px;
+}
+
+.box-two-header{
+    display: flex;
+}
+
+.shows{
+    display: flex;
+}
+
+.popular{
+    padding-left: 30px;
+    padding-top: 120px;
+    font-size: 35px;
+    font-weight: 900;
+    padding-right: 850px;
+}
+
+.view{
+    padding-top: 130px;
+    color: #6C3EF2;
+    font-size: 20px;
+}
+
+
+
+.concert{
+    margin-left: 30px;
+    background-color: #947cdc;
+    border-radius: 20px;
+    width: 300px;
+    height: 480px;
+    line-height: 10px;
+    color: white;
+}
+
+.buju-show{
+    height: 300px;
+    width: 80%;
+    padding-top: 5px;
+    padding-left: 35px;
+
+}
+
+.music{
+    font-weight: 900px;
+}
+
+.summer{
+    font-size: 20px;
+}
+
+.movement{
+    padding-left: 70px;
+}
+
+
+
+
+.concert-two{
+    margin-left: 30px;
+    background-color: #947cdc;
+    border-radius: 20px;
+    width: 300px;
+    height: 480px;
+    line-height: 10px;
+    color: white;
+}
+
+.davido-show{
+    height: 300px;
+    width: 80%;
+    padding-top: 5px;
+    padding-left: 35px;
+
+}
+
+.music-two{
+    font-weight: 900px;
+}
+
+.summer-two{
+    font-size: 20px;
+}
+
+.movement-two{
+    padding-left: 70px;
+}
+
+
+
+
+.concert-three{
+    margin-left: 30px;
+    background-color: #947cdc;
+    border-radius: 20px;
+    width: 300px;
+    height: 480px;
+    line-height: 10px;
+    color: white;
+}
+
+.asake-show{
+    height: 300px;
+    width: 80%;
+    padding-top: 5px;
+    padding-left: 35px;
+
+}
+
+.music-three{
+    font-weight: 900px;
+}
+
+.summer-three{
+    font-size: 20px;
+}
+
+.movement-three{
+    padding-left: 70px;
+}
+
+
+
+
+.concert-four{
+    margin-left: 30px;
+    background-color: #947cdc;
+    border-radius: 20px;
+    width: 300px;
+    height: 480px;
+    line-height: 10px;
+    color: white;
+}
+
+.asake-four{
+    height: 300px;
+    width: 80%;
+    padding-top: 5px;
+    padding-left: 35px;
+
+}
+
+.music-four{
+    font-weight: 900px;
+}
+
+.summer-four{
+    font-size: 20px;
+}
+
+.movement-four{
+    padding-left: 70px;
+}
+
+
+.box-three{
+    background-color: #6C3EF2;
+    border-radius: 20px;
+    display: flex;
+    height: 100px;
+    margin-top: 300px;
+}
+
+.organizing{
+    padding-left: 50px;
+    padding-top: 10px;
+    font-size: 30px;
+    color: white;
+    margin: 0px;
+    padding-right: 600PX;
+
+}
+
+.organ-text{
+    margin: 0px;
+    padding-left: 50px;
+}
+
+.list{
+    background-color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    color: #6C3EF2;
+    margin-top: 25px;
+    /* padding-left: 500px; */
+    font-size: 20px;
+}
+
+.box-four{
+    height: 200px;
+    display: flex;
+}
+
+.bottom-image{
+    margin-top: 20px;
+    padding-left: 40px;
+    width: 170px;
+}
+
+.last-text{
+    padding-left: 40px;
+}
+
+.all-pics{
+    display: flex;
+}
+
+.fb{
+    width: 60px;
+    padding-left: 32px;
+}
+
+.insta{
+    width: 60px;
+}
+
+.tweet{
+    width: 60px;
+}
+
+.line{
+    margin-top: 70px;
+}
+
+.company{
+    color: #6C3EF2;
+}
+
+.support{
+    color: #6C3EF2;
+}
+
+.boxy-one{
+    margin-right: 680px;
+}
+
+.boxy-two{
+    margin-right: 80px;
+}
+
