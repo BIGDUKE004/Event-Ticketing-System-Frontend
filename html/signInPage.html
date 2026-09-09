@@ -172,39 +172,20 @@
 
         togglePassword.addEventListener("click", function () {
 
-            if (passwordInput.type === "password") {
-
-                passwordInput.type = "text";
-
-                togglePassword.textContent = "◉";
-
-            } else {
-
-                passwordInput.type = "password";
-
-                togglePassword.textContent = "◉";
-
-            }
+if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    togglePassword.textContent = "◉";
+    togglePassword.setAttribute("aria-label", "Hide password");
+} else {
+    passwordInput.type = "password";
+    togglePassword.textContent = "◉";
+    togglePassword.setAttribute("aria-label", "Show password");
+}
 
         });
 
 
 
-        const loginForm = document.getElementById("loginForm");
-
-        loginForm.addEventListener("submit", function (event) {
-
-            event.preventDefault();
-
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            console.log("Email:", email);
-            console.log("Password:", password);
-
-            alert("Sign in submitted!");
-
-        });
 
     </script>
 
