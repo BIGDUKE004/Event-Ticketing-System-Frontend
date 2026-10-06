@@ -2,7 +2,7 @@ export const CUR = '₦' // currency symbol shown on prices
 export function jwtDecode(t) { try { return JSON.parse(atob(t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/'))) } catch { return {} } }
 export const friendly = u => (!u || /^[0-9a-f]{8}-[0-9a-f]{4}-/i.test(u) || String(u).length > 28) ? 'Account' : String(u)
 const tok = localStorage.epToken || ''
-export const S = { base: localStorage.epBase || 'http://127.0.0.1:8000', token: tok, uid: localStorage.epUid || (tok ? String((p => p.user_id ?? p.id ?? p.sub ?? '')(jwtDecode(tok))) : ''), spec: null, routes: [], R: {}, demo: false }
+export const S = {base: 'https://event-ticketing-system-4noq.onrender.com', token: tok, uid: localStorage.epUid || (tok ? String((p => p.user_id ?? p.id ?? p.sub ?? '')(jwtDecode(tok))) : ''), spec: null, routes: [], R: {}, demo: false }
 
 export const norm = s => String(s).toLowerCase().replace(/[^a-z]/g, '')
 export const arr = j => Array.isArray(j) ? j : (j && (j.items || j.data || j.results || j.events || j.tickets || j.bookings)) || []
