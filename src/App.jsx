@@ -66,7 +66,7 @@ function Modal({ close, children }) {
 function AuthModal({ close }) {
   const { setSession, toast, bump } = useX(); const [tab, setTab] = useState('login'); const r = S.R[tab]
   return (<>
-    <h2>Welcome to EvenPad!!</h2>
+    <h2>Welcome to EventPad!!</h2>
     <div className="tabs">{['login', 'register'].map(t => <button key={t} className={tab === t ? 'on' : ''} onClick={() => setTab(t)}>{t === 'login' ? 'Sign in' : 'Create account'}</button>)}</div>
     {r ? <SchemaForm key={tab} route={r} cta={tab === 'login' ? 'Sign in' : 'Create account'} done={(j, body) => {
       if (setSession(j, body && (body.email || body.username || body.name))) { close(); toast('You are in. Welcome!'); bump() }
@@ -274,7 +274,7 @@ export default function App() {
   return (
     <X.Provider value={ctx}>
       <header>
-        <div className="brand"><Logo /><span>EvenPad!!</span></div>
+        <div className="brand"><Logo /><span>EventPad!!</span></div>
         <nav>{nav.map(([k, n]) => <button key={k} className={view === k ? 'on' : ''} onClick={() => go(k)}>{n}</button>)}</nav>
         <div className="sp" />
         <div className={'pill' + (demo && !connecting ? ' demo' : '')}><i /><span>{connecting ? 'Connecting' : demo ? 'Demo data' : 'Live API'}</span></div>

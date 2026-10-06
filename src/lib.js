@@ -20,7 +20,7 @@ export const demoEvents = [['Lagos Jazz Under the Stars', 'Terra Kulture, Victor
 export async function api(m, p, body) {
   const hd = {}; if (S.token) hd.Authorization = 'Bearer ' + S.token
   let b; if (body && m !== 'GET') { if (body instanceof URLSearchParams) b = body; else { hd['Content-Type'] = 'application/json'; b = JSON.stringify(body) } }
-  let r; try { r = await fetch(S.base + p, { method: m, headers: hd, body: b }) } catch { throw new Error('Cannot reach the API. Check it is running and open EvenPad!! from http://127.0.0.1:5500') }
+  let r; try { r = await fetch(S.base + p, { method: m, headers: hd, body: b }) } catch { throw new Error('Cannot reach the API. Check it is running and open EventPad!! from http://127.0.0.1:5500') }
   let j = null; try { j = await r.json() } catch { }
   if (!r.ok) { if (r.status === 401) window.dispatchEvent(new Event('ep-401')); throw new Error(msg(j) || r.statusText) }
   return j
