@@ -1,7 +1,7 @@
 import { Component, StrictMode, Suspense, lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link, NavLink, Navigate, useNavigate } from 'react-router-dom'
-import { session } from './api'
+import { session, warmUp } from './api'
 import { Skel } from './ui'
 import './index.css'
 const Home = lazy(() => import('./pages/Home')), Events = lazy(() => import('./pages/Events')), EventPage = lazy(() => import('./pages/EventPage'))
@@ -26,6 +26,7 @@ function Nav() {
       {u ? <button className="btn ghost" onClick={() => { session.clear(); nav('/') }}>Log out</button> : <Link className="btn" to="/login">Log in</Link>}
     </nav></header>
 }
+warmUp()
 createRoot(document.getElementById('root')).render(<StrictMode><BrowserRouter><div className="min-h-screen flex flex-col"><Nav />
   <main className="flex-1 w-full mx-auto max-w-7xl px-5 sm:px-8 py-10"><Boundary><Suspense fallback={<Skel n={3} />}><Routes>
     <Route path="/" element={<Home />} /><Route path="/events" element={<Events />} /><Route path="/events/:id" element={<EventPage />} />

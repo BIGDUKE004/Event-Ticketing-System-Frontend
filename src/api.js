@@ -8,11 +8,17 @@ export const session = {
   clear() { localStorage.removeItem('ep_t'); localStorage.removeItem('ep_u') },
 }
 async function req(path, { method = 'GET', body } = {}) {
-  const r = await fetch(BASE + path, { method, headers: { 'Content-Type': 'application/json', ...(session.token && { Authorization: `Bearer ${session.token}` }) }, body: body && JSON.stringify(body) })
+  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 70000)
+  let r
+  try { r = await fetch(BASE + path, { method, signal: ctl.signal, headers: { 'Content-Type': 'application/json', ...(session.token && { Authorization: `Bearer ${session.token}` }) }, body: body && JSON.stringify(body) }) }
+  catch (e) { throw new Error(e.name === 'AbortError' ? 'This is taking longer than expected. Please try again.' : (console.warn('API unreachable at', BASE || '(no VITE_API_URL set)'), 'We’re having trouble connecting. Please check your connection and try again.')) }
+  finally { clearTimeout(timer) }
   if (r.status === 401) session.clear()
   if (!r.ok) { let m = r.statusText; try { const j = await r.json(); m = typeof j.detail === 'string' ? j.detail : j.detail?.[0]?.msg || m } catch {} throw new Error(m) }
   return r.status === 204 ? null : r.json()
 }
+// Quietly wakes an idle backend so the first real request is fast.
+export const warmUp = () => fetch(BASE + '/events/').catch(() => {})
 const arr = x => (Array.isArray(x) ? x : [])
 const ev = e => (e && typeof e === 'object' ? { ...e, ticket_types: arr(e.ticket_types) } : e)
 export const api = {
