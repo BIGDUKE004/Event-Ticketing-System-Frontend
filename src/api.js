@@ -14,7 +14,7 @@ async function req(path, { method = 'GET', body } = {}) {
   catch (e) { throw new Error(e.name === 'AbortError' ? 'This is taking longer than expected. Please try again.' : (console.warn('API unreachable at', BASE || '(no VITE_API_URL set)'), 'We’re having trouble connecting. Please check your connection and try again.')) }
   finally { clearTimeout(timer) }
   if (r.status === 401) session.clear()
-  if (!r.ok) { let m = r.statusText; try { const j = await r.json(); m = typeof j.detail === 'string' ? j.detail : j.detail?.[0]?.msg || m } catch {} throw new Error(m) }
+  if (!r.ok) { let m = r.statusText || 'We couldn’t load this right now. Please try again.'; try { const j = await r.json(); m = typeof j.detail === 'string' ? j.detail : j.detail?.[0]?.msg || m } catch {} throw new Error(m) }
   return r.status === 204 ? null : r.json()
 }
 // Quietly wakes an idle backend so the first real request is fast.
