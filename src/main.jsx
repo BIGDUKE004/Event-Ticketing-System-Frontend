@@ -10,7 +10,8 @@ const Dashboard = lazy(() => import('./pages/Dashboard'))
 class Boundary extends Component {
   state = { e: null }
   static getDerivedStateFromError(e) { return { e } }
-  render() { return this.state.e ? <div role="alert" className="card p-6 max-w-xl mx-auto"><h1 className="text-2xl font-extrabold">Something went wrong</h1><pre className="mut text-sm whitespace-pre-wrap mt-3">{String(this.state.e.message || this.state.e)}</pre><button className="btn mt-4" onClick={() => { this.setState({ e: null }); location.href = '/' }}>Back to home</button></div> : this.props.children }
+  componentDidCatch(e, info) { console.error(e, info.componentStack); this.setState({ where: (info.componentStack || '').split('\n').slice(1, 4).join(' ').trim() }) }
+  render() { return this.state.e ? <div role="alert" className="card p-6 max-w-xl mx-auto"><h1 className="text-2xl font-extrabold">Something went wrong</h1><pre className="mut text-sm whitespace-pre-wrap mt-3">{String(this.state.e.message || this.state.e)}{this.state.where ? '\n' + this.state.where : ''}</pre><button className="btn mt-4" onClick={() => { this.setState({ e: null }); location.href = '/' }}>Back to home</button></div> : this.props.children }
 }
 function Guard({ children, organizer }) { const u = session.user; if (!u) return <Navigate to="/login" replace />; if (organizer && u.role !== 'organizer') return <Navigate to="/" replace />; return children }
 function Nav() {
@@ -20,7 +21,7 @@ function Nav() {
       <Link to="/" className="disp text-2xl font-extrabold" style={{ color: 'var(--acc)' }}>EventPad</Link>
       <NavLink to="/events" className="mut font-medium">Events</NavLink>
       {u && <NavLink to="/tickets" className="mut font-medium">My tickets</NavLink>}
-      {u?.role === 'organizer' && <NavLink to="/dashboard" className="mut font-medium">Dashboard</NavLink>}
+      {u && <NavLink to="/dashboard" className="mut font-medium">Host</NavLink>}
       <span className="flex-1" />
       {u ? <button className="btn ghost" onClick={() => { session.clear(); nav('/') }}>Log out</button> : <Link className="btn" to="/login">Log in</Link>}
     </nav></header>
@@ -30,7 +31,7 @@ createRoot(document.getElementById('root')).render(<StrictMode><BrowserRouter><d
     <Route path="/" element={<Home />} /><Route path="/events" element={<Events />} /><Route path="/events/:id" element={<EventPage />} />
     <Route path="/checkout" element={<Guard><Checkout /></Guard>} /><Route path="/tickets" element={<Guard><MyTickets /></Guard>} />
     <Route path="/login" element={<Auth />} /><Route path="/signup" element={<Auth signup />} />
-    <Route path="/dashboard" element={<Guard organizer><Dashboard /></Guard>} />
+    <Route path="/dashboard" element={<Guard><Dashboard /></Guard>} />
   </Routes></Suspense></Boundary></main>
   <footer style={{ borderTop: '1px solid var(--line)' }}><div className="mx-auto max-w-7xl px-5 sm:px-8 py-12 grid gap-8 sm:grid-cols-3">
     <div><p className="disp text-2xl font-extrabold" style={{ color: 'var(--acc)' }}>EventPad</p><p className="mut mt-2 max-w-xs">Tickets to the good stuff. Discover events, book in seconds, walk in with a QR code.</p></div>

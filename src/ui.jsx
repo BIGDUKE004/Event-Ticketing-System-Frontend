@@ -7,7 +7,7 @@ export const Empty = ({ children }) => <div className="card p-10 text-center mut
 export const Err = ({ msg }) => <div role="alert" className="card p-4" style={{ color: 'var(--bad)' }}>{msg}</div>
 export function useLoad(fn, deps = []) {
   const [s, set] = useState({ loading: true }); 
-  useEffect(() => { let on = true; set({ loading: true }); fn().then(data => on && set({ data })).catch(e => on && set({ error: e.message })); return () => { on = false } }, deps)
+  useEffect(() => { let on = true; set({ loading: true }); fn().then(data => on && set(data == null ? { error: 'The server returned an empty response.' } : { data })).catch(e => on && set({ error: e.message })); return () => { on = false } }, deps)
   return s
 }
 export function Counter({ to }) {

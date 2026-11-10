@@ -11,5 +11,7 @@ npm run dev
 
 **Production CORS:** the backend only allows `https://eventpadi-steel.vercel.app`. Add your deployed frontend URL to `allow_origins` in the backend's `main.py`.
 
+**Hosting:** the API gives every account the role `customer` and only checks login when creating events, so any logged-in user can use the Host page.
+
 ## Structure
 `src/api.js` single API client + session · `src/ui.jsx` shared bits · `src/pages/*` lazy-loaded routes.
