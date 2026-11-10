@@ -15,7 +15,7 @@ export function Counter({ to }) {
   useEffect(() => { const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches; if (reduce) return setV(to); let r, t0; const f = t => { t0 ??= t; const p = Math.min((t - t0) / 800, 1); setV(Math.round(to * p)); if (p < 1) r = requestAnimationFrame(f) }; r = requestAnimationFrame(f); return () => cancelAnimationFrame(r) }, [to])
   return <>{v.toLocaleString()}</>
 }
-export const tierInfo = e => { const t = e.ticket_types || []; return { left: t.reduce((a, x) => a + x.available_quantity, 0), from: t.length ? Math.min(...t.map(x => x.price)) : null } }
+export const tierInfo = e => { const t = e?.ticket_types ?? []; return { left: t.reduce((a, x) => a + x.available_quantity, 0), from: t.length ? Math.min(...t.map(x => x.price)) : null } }
 export function EventCard({ e, Link }) {
   const { left, from } = tierInfo(e)
   return <Link to={`/events/${e.id}`} className="card overflow-hidden block">
