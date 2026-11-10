@@ -1,8 +1,13 @@
-# EvenPad!!
-React + Vite frontend for the FastAPI Event-Ticketing-System.
+# EventPad Web
+React + Vite + Tailwind v4 frontend for the EventPad FastAPI backend.
 
-    npm install
-    npm run dev        # serves on http://127.0.0.1:5500 (matches the CORS origin in main.py)
+## Run
+```bash
+cp .env.example .env     # set VITE_API_URL to your API (default http://localhost:8000)
+npm install
+npm run dev
+```
+**CORS:** the backend only allows `https://eventpadi-steel.vercel.app`. Add `http://localhost:5173` to `allow_origins` in the backend's `main.py` for local dev.
 
-Start the API first: `uvicorn main:app --reload` (default http://127.0.0.1:8000, change under Settings).
-Endpoints and form fields are discovered from the API's /openapi.json at runtime.
+## Structure
+`src/api.js` single API client + session · `src/ui.jsx` shared bits · `src/pages/*` lazy-loaded routes.
