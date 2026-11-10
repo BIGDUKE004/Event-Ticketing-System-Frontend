@@ -4,9 +4,9 @@ import { useLoad, Skel, Err, Empty, EventCard } from '../ui'
 export default function Home() {
   const { data, loading, error } = useLoad(api.events)
   return <>
-    <section className="py-14 sm:py-24 max-w-3xl">
-      <h1 className="text-5xl sm:text-7xl font-extrabold leading-[1.02]">Tickets to the <span style={{ color: 'var(--acc)' }}>good stuff.</span></h1>
-      <p className="mut text-lg mt-5 max-w-xl">Find an event, grab your tickets in seconds, walk in with a QR code. Hosting? Set up tiers and watch sales come in.</p>
+    <section className="py-16 sm:py-28 max-w-4xl">
+      <h1 className="text-5xl sm:text-8xl font-extrabold leading-[1.02]">Tickets to the <span style={{ color: 'var(--acc)' }}>good stuff.</span></h1>
+      <p className="mut text-xl mt-6 max-w-2xl">Find an event, grab your tickets in seconds, walk in with a QR code. Hosting? Set up tiers and watch sales come in.</p>
       <div className="mt-8 flex gap-3"><Link className="btn" to="/events">Browse events</Link><Link className="btn ghost" to="/signup">Start hosting</Link></div>
     </section>
     <h2 className="text-2xl font-extrabold mb-4">Upcoming events</h2>

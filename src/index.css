@@ -1,7 +1,8 @@
 @import "tailwindcss";
 :root{--bg:#faf8f5;--fg:#16141a;--mut:#6b6772;--card:#fff;--line:#e8e4de;--acc:#e8431f;--accfg:#fff;--ok:#0f7b4f;--bad:#c0262d;--warn:#9a6700}
 @media(prefers-color-scheme:dark){:root{--bg:#0f0e12;--fg:#f4f1ec;--mut:#a29dab;--card:#19171e;--line:#2b2833;--acc:#ff6a45;--accfg:#16141a;--ok:#3ddc97;--bad:#ff6b70;--warn:#f2c14e}}
-body{background:var(--bg);color:var(--fg);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html{font-size:17px}@media(min-width:1280px){html{font-size:18px}}
+body{min-height:100vh;background:var(--bg);color:var(--fg);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.disp{font-family:'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.02em}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 1px 2px rgb(0 0 0/.04),0 8px 24px -12px rgb(0 0 0/.12);transition:transform .2s,box-shadow .2s}
 a.card:hover{transform:translateY(-3px)}

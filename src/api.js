@@ -1,5 +1,6 @@
 // Single API client. Base URL comes from VITE_API_URL.
-const BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+// Dev: requests go through Vite's /api proxy (no CORS). Production: VITE_API_URL.
+const BASE = import.meta.env.DEV ? '/api' : (import.meta.env.VITE_API_URL || '')
 export const session = {
   get token() { return localStorage.getItem('ep_t') },
   get user() { try { return JSON.parse(localStorage.getItem('ep_u')) } catch { return null } },
